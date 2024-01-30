@@ -8,12 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clockpicker/dist/bootstrap-clockpicker.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
     <script src="../../assets/../js/appoint.js"></script>
 
     <style>
@@ -188,6 +189,11 @@
                 opacity: 1;
             }
         }
+
+        /* Styling for clock picker */
+        .clockpicker-popover {
+            z-index: 999999; /* Adjust z-index as needed */
+        }
     </style>
 </head>
 
@@ -201,27 +207,6 @@
                         <h3 class="my-3 text-red font-weight-medium text-uppercase">Book an Appointment</h3>
                         <div class="bg-white">
                             <div class="form-row border-bottom">
-                                <div class="p-4 left border-right w-50">
-                                    <label class="text-inverse font-12 text-uppercase">First Name</label>
-                                    <input type="text" id="firstName"
-                                        class="border-0 p-0 font-14 form-control float" placeholder="Your First Name" />
-                                </div>
-                                <div class="p-4 right w-50">
-                                    <label class="text-inverse font-12 text-uppercase">Last Name</label>
-                                    <input type="text" id="lastName" class="border-0 p-0 font-14 form-control float"
-                                        placeholder="Your Last Name" />
-                                </div>
-                            </div>
-                            <div class="form-row border-bottom p-4">
-                                <label class="text-inverse font-12 text-uppercase">Email Address</label>
-                                <input type="text" id="email" class="border-0 p-0 font-14 form-control float"
-                                    placeholder="Enter your Email Address" />
-                            </div>
-                            <div class="form-row border-bottom p-4">
-                                <label class="text-inverse font-12 text-uppercase">Phone Number</label>
-                                <input type="text" id="phoneNumber" class="border-0 p-0 font-14 form-control float"
-                                    placeholder="Enter your Phone Number" />
-                            </div>
                             <div class="form-row border-bottom p-4 position-relative">
                                 <label class="text-inverse font-12 text-uppercase">Booking Date</label>
                                 <div class="input-group date">
@@ -230,11 +215,23 @@
                                     <label class="mt-2" for="dp"><i class="icon-calendar mt-1"></i></label>
                                 </div>
                             </div>
+                            <div class="form-row border-bottom p-4 position-relative">
+                                <label class="text-inverse font-12 text-uppercase">Booking Time</label>
+                                <div class="input-group clockpicker">
+                                    <input type="text" id="appointmentTime"
+                                        class="border-0 p-0 font-14 form-control float"
+                                        placeholder="Select the Appointment Time" />
+                                    <label class="mt-2" for="appointmentTime"><i class="icon-clock mt-1"></i></label>
+                                </div>
+                            </div>
                             <div class="form-row border-bottom p-4">
-                                <label class="text-inverse font-12 text-uppercase">Message</label>
-                                <textarea col="1" row="1" id="message"
-                                    class="border-0 p-0 font-weight-light font-14 form-control float"
-                                    placeholder="Write Down the Message"></textarea>
+                                <label class="text-inverse font-12 text-uppercase">Appointment Type</label>
+                                <select id="appointmentType" class="form-control border-0 p-0 font-14 float">
+                                    <option value="" disabled selected>Select Appointment Type</option>
+                                    <option value="deepCleaning">Deep Cleaning</option>
+                                    <option value="fullRestore">Full Restore</option>
+                                    <option value="pieceReplace">Piece Replace</option>
+                                </select>
                             </div>
                             <div>
                                 <button id="bookAppointmentBtn"
@@ -254,6 +251,22 @@
         document.addEventListener("DOMContentLoaded", function () {
             var content = document.querySelector(".fade-in");
             content.classList.add("fade-in");
+        });
+
+        // Initialize date picker
+        $('#dp').datepicker({
+            minDate: 0, // Prevent past dates
+            dateFormat: 'yy-mm-dd' // Set date format as needed
+        });
+
+        // Initialize clock picker
+        $('#appointmentTime').clockpicker({
+            autoclose: true
+        });
+
+        // JavaScript for form validation and submission (unchanged)
+        $(document).ready(function () {
+            // ... (your existing code)
         });
     </script>
 </body>

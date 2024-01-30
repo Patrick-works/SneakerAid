@@ -21,7 +21,7 @@ a {
 }
 
 a:hover {
-  color: #73c5eb;
+  color: red;
   text-decoration: none;
 }
 
@@ -45,7 +45,8 @@ h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #37517e;
+  background-image: url("../assets/img/leb.jpg");
+  background-position: center ;
 }
 
 #preloader:before {
@@ -53,9 +54,9 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #37517e;
+  border: 6px solid black;
   border-top-color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: black;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -82,7 +83,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #47b2e4;
+  background: black;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -96,8 +97,8 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #6bc1e9;
-  color: #fff;
+  background: black;
+  color: black;
 }
 
 .back-to-top.active {
@@ -195,7 +196,7 @@ h6 {
   border-radius: 50px;
   color: #fff;
   font-size: 14px;
-  border: 2px solid #47b2e4;
+  border: 2px solid black;
   font-weight: 600;
 }
 
@@ -215,7 +216,7 @@ h6 {
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  background: #fff;
+  background: black;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
   border-radius: 4px;
@@ -390,7 +391,11 @@ h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background:linear-gradient(red,black);
+  background-image:url("../assets/img/wah.webp");
+  background-position: center bottom;
+
+  
+
 }
 
 #hero .container {
@@ -422,11 +427,11 @@ h6 {
   transition: 0.5s;
   margin: 10px 0 0 0;
   color: #fff;
-  background: #47b2e4;
+  background: blue;
 }
 
 #hero .btn-get-started:hover {
-  background: #209dd8;
+  background: black;
 }
 
 #hero .btn-watch-video {
@@ -448,7 +453,7 @@ h6 {
 }
 
 #hero .btn-watch-video:hover i {
-  color: #47b2e4;
+  color:black;
 }
 
 #hero .animated {
@@ -541,7 +546,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #37517e;
+  color: white;
 }
 
 .section-title h2::before {
@@ -561,7 +566,7 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #47b2e4;
+  background: red;
   bottom: 0;
   left: calc(50% - 20px);
 }
@@ -664,7 +669,7 @@ section {
 .why-us .content h3 {
   font-weight: 400;
   font-size: 34px;
-  color: #37517e;
+  color: white;
 }
 
 .why-us .content h4 {
@@ -721,7 +726,7 @@ section {
 }
 
 .why-us .accordion-list span {
-  color: #47b2e4;
+  color: red;
   font-weight: 600;
   font-size: 18px;
   padding-right: 10px;
@@ -748,7 +753,7 @@ section {
 }
 
 .why-us .accordion-list a.collapsed:hover {
-  color: #47b2e4;
+  color: red;
 }
 
 .why-us .accordion-list a.collapsed .icon-show {
@@ -893,26 +898,28 @@ section {
 }
 
 .services .icon-box:hover h4 a {
-  color: #47b2e4;
+  color: white;
 }
 
 /*--------------------------------------------------------------
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(black, red, black), url("../../assets/img/jord.png") fixed center center;
+  background-image: url("../assets/img/leb.jpg");
   background-size: cover;
+  background-position: center top; 
   padding: 120px 0;
 }
 
+
 .cta h3 {
-  color: #fff;
+  color: white;
   font-size: 28px;
   font-weight: 700;
 }
 
 .cta p {
-  color: #fff;
+  color: white;
 }
 
 .cta .cta-btn {
@@ -930,8 +937,8 @@ section {
 }
 
 .cta .cta-btn:hover {
-  background: #47b2e4;
-  border: 2px solid #47b2e4;
+  background: black;
+  border: 2px solid white;
 }
 
 @media (max-width: 1024px) {
@@ -1428,7 +1435,7 @@ section {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   padding: 30px;
-  background: linear-gradient(to bottom,black,red,black);
+  background-image: url("../assets/img/leb.jpg");
   width: 100%;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1);
 }
@@ -1493,7 +1500,7 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: linear-gradient(to bottom,red,blue);
+  background: linear-gradient(to bottom, red, blue);
   color: #fff;
 }
 
@@ -1502,8 +1509,9 @@ section {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   padding: 30px;
-  background:linear-gradient(to bottom,black,red,black);
+  background-color: black;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  animation: float 3s ease-in-out infinite; /* Added floating animation */
 }
 
 .contact .php-email-form .form-group {
@@ -1603,11 +1611,21 @@ section {
 
 @keyframes animate-loading {
   0% {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+
+/* Floating effect for form */
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  70% {
+      transform: translateY(-4px);
   }
 }
 
@@ -1717,7 +1735,7 @@ section {
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
-  background: linear-gradient(to bottom,black,red);
+  background-image: url("../assets/img/leb.jpg");
 }
 
 #footer .footer-top .footer-contact {

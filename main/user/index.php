@@ -1,5 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<?php 
+session_start(); 
+if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION["lastname"]) && isset($_SESSION["type"])  )
+{
+    $email = $_SESSION["email"];
+    $firstname=$_SESSION["firstname"];
+    $lastname=$_SESSION["lastname"];
+}else{
+    echo ("<script>location.href='sign.php'</script>");
+
+}
+?>
 
 <head>
   <meta charset="utf-8">
@@ -10,7 +21,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../../assets/img/favicon.png" rel="icon">
+  <link href="../../assets/img/aid.jpg" rel="icon">
   <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -28,13 +39,7 @@
   <!-- Template Main CSS File -->
   <link href="../../css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Arsha
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -70,7 +75,7 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Sometimes your sneakers need a luxury care too!</h1>
-          <h2>"Dont worry your sneakers will be alright "</h2>
+          <h2>"Dont worry your sneakers will be alright OKAY?"</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started scrollto">Sign up</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Cleaning process</span></a>
@@ -301,7 +306,7 @@ our online sneaker laundry service is equipped to handle them all</li>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="fa fa-american-sign-language-interpreting"></i></div>
-              <h4><a href="">Doorstep service</a></h4>
+              <h4><a href="schdule.php">Doorstep service</a></h4>
               <p>"Revitalize your sneakers without stepping out our
                  doorstep sneaker cleanup service"</p>
             </div>
@@ -338,7 +343,7 @@ our online sneaker laundry service is equipped to handle them all</li>
             <p> "Feel free to reach out to us with any inquiries, feedback, or collaboration opportunities. We value your input and are committed to providing prompt and helpful responses. Contact us via the form below or directly at [your email address]. Your satisfaction is our priority."</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
+            <a class="cta-btn align-middle" href="#contact">Call To Action</a>
           </div>
         </div>
 
@@ -369,7 +374,7 @@ our online sneaker laundry service is equipped to handle them all</li>
               <h4>Soft Brush-LIMITED</h4>
               <p>INR 500</p>
               <a href="../../assets/img/soft1.webp" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
 
@@ -649,37 +654,45 @@ our online sneaker laundry service is equipped to handle them all</li>
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-
+    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        
+        <!-- Rating input -->
+        <div class="form-group">
+            <label for="rating">Your Rating</label>
+            <select name="rating" class="form-control" id="rating" required>
+                <option value="" selected disabled>Select Rating (1-10)</option>
+                <!-- Add options from 1 to 10 -->
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="10">3</option>
+                <option value="10">4</option>
+                <option value="10">5</option>
+                <option value="10">6</option>
+                <option value="10">7</option>
+                <option value="10">8</option>
+                <option value="10">9</option>
+                <option value="10">10</option>
+            </select>
         </div>
 
-      </div>
+        <!-- Review input -->
+        <div class="form-group">
+            <label for="review">Your Review</label>
+            <textarea class="form-control" name="review" id="review" rows="4" required></textarea>
+        </div>
+        
+        
+
+        <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+        </div>
+        <div class="text-center"><button type="submit">Send Message</button></div>
+    </form>
+</div>
+
+
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
@@ -758,4 +771,3 @@ our online sneaker laundry service is equipped to handle them all</li>
 
 </body>
 
-</html>
