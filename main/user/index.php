@@ -6,8 +6,9 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
     $email = $_SESSION["email"];
     $firstname=$_SESSION["firstname"];
     $lastname=$_SESSION["lastname"];
+
 }else{
-    echo ("<script>location.href='sign.php'</script>");
+    // echo ("<script>location.href='sign.php'</script>");
 
 }
 ?>
@@ -26,7 +27,12 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+      crossorigin="anonymous"
+    />
   <!-- Vendor CSS Files -->
   <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +56,7 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
 
       <h1 class="logo me-auto"><a href="index.php">MR.Sneaker Aid</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -60,14 +66,54 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
           <li><a class="nav-link   scrollto" href="#portfolio">Products</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Rate Us</a></li>
-          <li><a class="getstarted scrollto" href="sign.php">Sign In </a></li>
+          <li><a class="getstarted scrollto" href="sign.php">Sign In &nbsp &nbsp &nbsp</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
     </div>
-  </header><!-- End Header -->
 
+    <div class="action" style=<?php 
+    if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION["lastname"]) && isset($_SESSION["type"])){
+      
+      echo "display:block";
+    } 
+    else{
+      echo "display:none";
+    }?> >
+      <div class="profile" onclick="menuToggle();">
+        <img src="../../assets/img/nikelogo.jpg" />
+      </div>
+      <div class="menu">
+        <h3><?php echo( $firstname) ?><?php echo( $lastname) ?> <br /><span><?php echo( $email) ?></span></h3>
+        <ul>
+          <li>
+            <img src="../../assets/assets_dropdown/icons/user.png" /><a href="#">My profile</a>
+          </li>
+          <li>
+            <img src="../../assets/assets_dropdown/icons/edit.png" /><a href="#">Edit profile</a>
+          </li>
+          <li>
+            <img src="../../assets/assets_dropdown/icons/envelope.png" /><a href="#">Inbox</a>
+          </li>
+          <li>
+            <img src="../../assets/assets_dropdown/icons/settings.png" /><a href="#">Setting</a>
+          </li>
+          <li><img src="../../assets/assets_dropdown/icons/question.png" /><a href="#">Help</a></li>
+          <li>
+            <img src="../../assets/assets_dropdown/icons/log-out.png" /><a href="../../config/custlogout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      function menuToggle() {
+        const toggleMenu = document.querySelector(".menu");
+        toggleMenu.classList.toggle("active");
+      }
+    </script>
+  </header><!-- End Header -->
+ 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
@@ -87,6 +133,7 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
       </div>
     </div>
 
+    
   </section><!-- End Hero -->
 
   <main id="main">
@@ -297,7 +344,7 @@ our online sneaker laundry service is equipped to handle them all</li>
         <div class="row">
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-              <div class="icon"><i class="fa fa-american-sign-language-interpreting"></i></div>
+             
               <h4><a href="bookk.php">Book an Appointment</a></h4>
               <p>"Efficient appointment booking streamlines scheduling"</p>
             </div>
@@ -305,7 +352,7 @@ our online sneaker laundry service is equipped to handle them all</li>
 
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="fa fa-american-sign-language-interpreting"></i></div>
+             
               <h4><a href="schdule.php">Doorstep service</a></h4>
               <p>"Revitalize your sneakers without stepping out our
                  doorstep sneaker cleanup service"</p>

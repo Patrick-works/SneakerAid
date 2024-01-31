@@ -1,23 +1,25 @@
 <?php
 include("../../config/connect.php");
 if(
-    !empty($_POST["#firstName"]) &&
-     !empty($_POST["#lastName"]) &&
-      !empty($_POST["MiddleNameSignUp"]) &&
-       !empty($_POST["passSignUp"]) &&
-        !empty($_POST["emailSignUp"]) 
-)
+    !empty($_POST["date"]) &&
+     !empty($_POST["time"]) &&
+      !empty($_POST["user"]) &&
+       !empty($_POST["type"]) )
 {
-    $FisrtName=$_POST["firstNameSignUp"];
-    $MiddeName=$_POST["MiddleNameSignUp"];
-    $LastName=$_POST["lastNameSignUp"];
-    $password=$_POST["passSignUp"];
-    $emailid=$_POST["emailSignUp"];
-
-   $registerquery="INSERT INTO `customers` (`FNAME`, `MNAME`, `LNAME`, `EMAIL_ID`, `PASSWORD`) VALUES ('$FisrtName', '$MiddeName', '$LastName', '$emailid', '$password')";
-
-   $exutequery=mysqli_query($con,$registerquery);
-   if($exutequery)
+    $date=$_POST["date"];
+    $time=$_POST["time"];
+    $user=$_POST["user"];
+    $type=$_POST["type"];
+    $loginquery = "SELECT * FROM customers WHERE EMAIL_ID = '$user'";
+    $exutequery = mysqli_query($con, $loginquery);
+    if (mysqli_num_rows($exutequery) == 1)
+    {
+        while($row=mysqli_fetch_assoc($exutequery))
+        {
+            $user_id=$row["CUSTOMER_ID"];
+            $registerquery="INSERT INTO `appointmentbook` ( `APT_DATE`, `APT_TIME`, `TYPE`, `CUSTOMER_ID`) VALUES ( '2024-01-31', '14:33:03', 'deep cleaning', '1')";
+            $exutequeryforregister=mysqli_query($con,$registerquery);
+   if($exutequeryforregister)
    {
     echo("1");
    }
@@ -25,4 +27,11 @@ if(
     echo("2");
    }
 }
+        }
+    }
+   
+ 
+   
+
+   
 ?>

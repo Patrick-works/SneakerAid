@@ -1,3 +1,18 @@
+
+
+<?php 
+session_start(); 
+if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION["lastname"]) && isset($_SESSION["type"])  )
+{
+    $email = $_SESSION["email"];
+    $firstname=$_SESSION["firstname"];
+    $lastname=$_SESSION["lastname"];
+
+}else{
+    // echo ("<script>location.href='sign.php'</script>");
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +27,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
@@ -29,7 +46,7 @@
 
         .banner3 .banner {
             position: relative;
-            max-height: 700px;
+            height: 100vh;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center top;
@@ -198,6 +215,7 @@
 </head>
 
 <body>
+<input type="text" id="useremail_booking" value="<?php echo($email) ?>" style="display:none">
     <!-- Your existing code with the added fade-in class -->
     <div class="banner3 fade-in">
         <div class="py-5 banner float" style="background-image:url(../../assets/img/bro.jpg);">
@@ -245,7 +263,8 @@
             </div>
         </div>
     </div>
-
+ 
+                                       
     <script>
         // JavaScript to add fade-in class after the page is fully loaded
         document.addEventListener("DOMContentLoaded", function () {
