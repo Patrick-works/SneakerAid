@@ -17,7 +17,7 @@ if(
         while($row=mysqli_fetch_assoc($exutequery))
         {
             $user_id=$row["CUSTOMER_ID"];
-            $registerquery="INSERT INTO `appointmentbook` ( `APT_DATE`, `APT_TIME`, `TYPE`, `CUSTOMER_ID`) VALUES ( '2024-01-31', '14:33:03', 'deep cleaning', '1')";
+            $registerquery="INSERT INTO `appointmentbook` ( `APT_DATE`, `APT_TIME`, `TYPE`, `CUSTOMER_ID`) VALUES ( '$date', '$time', '$type', '$user_id')";
             $exutequeryforregister=mysqli_query($con,$registerquery);
    if($exutequeryforregister)
    {
