@@ -9,7 +9,7 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
     $lastname=$_SESSION["lastname"];
 
 }else{
-    // echo ("<script>location.href='sign.php'</script>");
+    echo ("<script>location.href='sign.php'</script>");
 
 }
 ?>
@@ -32,6 +32,8 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../../assets/../js/appoint.js"></script>
 
     <style>

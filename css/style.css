@@ -970,7 +970,7 @@ section {
   font-size: 15px;
   font-weight: 500;
   line-height: 1;
-  color: #444444;
+  color:white;
   transition: all 0.3s;
   padding: 8px 20px;
   border-radius: 50px;
@@ -980,7 +980,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  background: #47b2e4;
+  background: red;
   color: #fff;
 }
 
@@ -1040,7 +1040,7 @@ section {
 
 .portfolio .portfolio-item .portfolio-info .preview-link:hover,
 .portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: #47b2e4;
+  color: red;
 }
 
 .portfolio .portfolio-item .portfolio-info .details-link {
@@ -1060,7 +1060,7 @@ section {
 --------------------------------------------------------------*/
 .portfolio-details {
   padding-top: 40px;
-  background: linear-gradient(to right,white,white black);
+  background-image: url("../assets/img/bro.jpg");
 }
 
 .portfolio-details .portfolio-details-slider img {
@@ -1081,12 +1081,12 @@ section {
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: white;
+  background-color: black;
 }
 
 .portfolio-details .portfolio-info {
   padding: 30px;
-  box-shadow: 0px 0 30px rgba(55, 81, 126, 0.08);
+  box-shadow: white;
 }
 
 .portfolio-details .portfolio-info h3 {
@@ -1094,31 +1094,37 @@ section {
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
+  color: white;
 }
 
 .portfolio-details .portfolio-info ul {
   list-style: none;
   padding: 0;
   font-size: 15px;
+  color: white;
 }
 
 .portfolio-details .portfolio-info ul li+li {
   margin-top: 10px;
+
 }
 
 .portfolio-details .portfolio-description {
   padding-top: 30px;
+  
 }
 
 .portfolio-details .portfolio-description h2 {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: white;
 }
 
 .portfolio-details .portfolio-description p {
   padding: 0;
+  color: white;
 }
 
 /*--------------------------------------------------------------
@@ -1634,7 +1640,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background:white;
+  background:black;
   min-height: 40px;
   margin-top: 72px;
 }
@@ -1649,7 +1655,7 @@ section {
 .breadcrumbs h2 {
   font-size: 28px;
   font-weight: 600;
-  color: black;
+  color: white;
 }
 
 .breadcrumbs ol {
@@ -1722,7 +1728,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: black;
+  background: white;
   color: #fff;
   transition: 0.3s;
   border-radius: 50px;
@@ -1730,7 +1736,7 @@ section {
 }
 
 #footer .footer-newsletter form input[type=submit]:hover {
-  background: black;
+  background: white;
 }
 
 #footer .footer-top {
@@ -1763,7 +1769,7 @@ section {
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: black;
+  color: white;
   position: relative;
   padding-bottom: 12px;
 }
@@ -1804,7 +1810,7 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: grey;
+  color: white;
 }
 
 #footer .footer-top .social-links a {

@@ -53,7 +53,7 @@ console.log($email);
 
         // If the form is valid, show success message (replace this with your actual logic)
         if (isValid) {
-            // showSuccessMessage();
+            showSuccessMessage();
             event.preventDefault();
       $.ajax({
         url: "../Ajax/appointajax.php", // Replace with the actual URL of your server-side script
@@ -110,11 +110,30 @@ console.log($email);
     });
 
     // Function to show success message (replace this with your actual logic)
-    // function showSuccessMessage() {
-    //     Swal.fire({
-    //         icon: 'success',
-    //         title: 'Form Submitted Successfully!',
-    //         text: 'Thank you for booking your appointment.',
-    //     });
-    // }
+    function showSuccessMessage() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Form Submitted Successfully!',
+            text: 'Thank you for booking your appointment.',
+        });
+    }
 });
+(async () => {
+    const { value: accept } = await Swal.fire({
+      title: "Terms and conditions",
+      input: "checkbox",
+      inputValue: 1,
+      inputPlaceholder: `
+        I agree with the terms and conditions
+      `,
+      confirmButtonText: `
+        Continue&nbsp;<i class="fa fa-arrow-right"></i>
+      `,
+      inputValidator: (result) => {
+        return !result && "You need to agree with T&C";
+      }
+    });
+    if (accept) {
+      Swal.fire("You agreed with T&C :)");
+    }
+})()

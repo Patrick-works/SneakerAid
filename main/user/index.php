@@ -206,7 +206,7 @@ our online sneaker laundry service is equipped to handle them all</li>
               courtesy of our convenient and reliable online sneaker laundry service.
                Your shoes deserve the best – let us give them the care they need
             </p>
-            <a href="#services" class="btn-learn-more">HOP IN</a>
+            <a href="sign.php" class="btn-learn-more">HOP IN</a>
           </div>
         </div>
 
