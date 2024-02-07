@@ -39,6 +39,15 @@
 
 <body>
 
+  <?php
+  include("../../config/connect.php");
+    $id = $_GET["id"];
+    if (!isset($id)) {
+      echo ("<script>location.href='index.php'</script>");
+    }elseif(empty($id)){
+      echo ("<script>location.href='index.php'</script>");
+    }
+  ?>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
@@ -63,6 +72,17 @@
 
   <main id="main">
 
+  <?php 
+
+$productquery = "SELECT * FROM product WHERE PRO_ID = '$id' ";
+$exutequery = mysqli_query($con, $productquery);
+if (mysqli_num_rows($exutequery) == 1)
+{
+    while($row=mysqli_fetch_assoc($exutequery))
+    {
+      ?>
+      
+
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
@@ -71,7 +91,11 @@
           <li><a href="index.php">Home</a></li>
           <li>Product Details</li>
         </ol>
-        <h2>Soft Brush-LIMITED</h2>
+        <h2>
+        <?php  
+        echo($row["PRO_NAME"]);
+      ?>
+</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
@@ -87,14 +111,10 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="../../assets/img/soft1.webp" alt="">
+                  <img src="<?php  
+        echo($row["PRO_IMG"]);
+      ?>" alt="">
                 </div>
-
-                <div class="swiper-slide">
-                  <img src="../../assets/img/soft22.jpg" alt="">
-                </div>
-
-              
 
               </div>
               <div class="swiper-pagination"></div>
@@ -104,11 +124,25 @@
           <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Information</h3>
-              <p>Each brush is made from hand-crafted premium quality wood. The extra-long bristles support convenient cleaning and successfully clean materials like leather, suede, mesh, canvas, and many more.</p>
+              <p><?php  
+        echo($row["PRO_DESC"]);
+      ?></p>
               <ul>
-                <li><strong>Category</strong>: Brush</li>
+                <li><strong>Category</strong>: <?php  
+                $cateogry_id = $row["CATEGORY_ID"];
+                $query_to_get_cateogry = "SELECT * FROM `pro_category` WHERE CATEGORY_ID = '$cateogry_id' ";
+                $exceute_cateogry = mysqli_query($con,$query_to_get_cateogry);
+                if(mysqli_num_rows($exceute_cateogry)>0){
+                  while($row_of_query = mysqli_fetch_assoc($exceute_cateogry))
+                  {
+                    echo($row_of_query["TYPE"]);
+                  }
+                }
+      ?></li>
                 
-                <li><strong>Product Price</strong>: INR 499</li>
+                <li><strong>Product Price</strong>: INR <?php  
+        echo($row["PRO_PRICE"]);
+      ?></li>
                 <li><a class="" href="sign.php">BUY NOW</a></li>
               </ul>
             </div>
@@ -130,7 +164,10 @@
 
       </div>
     </section><!-- End Portfolio Details Section -->
-
+    <?php
+    }
+}
+?>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

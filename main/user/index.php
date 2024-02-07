@@ -11,6 +11,7 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
     // echo ("<script>location.href='sign.php'</script>");
 
 }
+include("../../config/connect.php");
 ?>
 
 <head>
@@ -397,7 +398,7 @@ our online sneaker laundry service is equipped to handle them all</li>
       </div>
     </section><!-- End Cta Section -->
 
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Product Section ======= -->
     <section id="portfolio" class="portfolio bg-black">
       <div class="container" data-aos="fade-up">
 
@@ -414,18 +415,41 @@ our online sneaker laundry service is equipped to handle them all</li>
         </ul>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+<?php 
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="../../assets/img/soft1.webp" class="img-fluid" alt=""></div>
+$productquery = "SELECT * FROM product";
+$exutequery = mysqli_query($con, $productquery);
+if (mysqli_num_rows($exutequery) > 0)
+{
+  echo("hahaha");
+    while($row=mysqli_fetch_assoc($exutequery))
+    {
+      ?>
+<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-img"><img src="<?php 
+            echo($row["PRO_IMG"]);
+            ?>" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
-              <h4>Soft Brush-LIMITED</h4>
-              <p>INR 500</p>
+              <h4><?php  echo($row["PRO_NAME"]); ?></h4>
+              <p><?php   echo($row["PRO_PRICE"]);  ?></p>
               <a href="../../assets/img/soft1.webp" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.php" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+              <a href="portfolio-details.php?id=<?php echo($row["PRO_ID"]);  ?>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
+      <?php
+    //  echo($row["PRO_IMG"]);
+    //  echo($row["PRO_ID"]);
+    //  echo($row["PRO_NAME"]);
+    //  echo($row["PRO_DESC"]);
+    //  echo($row["PRO_PRICE"]);
+    //  echo($row["CATEGORY_ID"]);
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+    }
+  }
+?>
+          
+
+         <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-img"><img src="../../assets/img/Lace_V1_1064_1.webp" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
               <h4>Web 3</h4>
@@ -503,7 +527,7 @@ our online sneaker laundry service is equipped to handle them all</li>
               <a href="../../assets/img/LaceV1_10641_offwhite.webp" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
               <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
