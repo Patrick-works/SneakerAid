@@ -421,7 +421,7 @@ $productquery = "SELECT * FROM product";
 $exutequery = mysqli_query($con, $productquery);
 if (mysqli_num_rows($exutequery) > 0)
 {
-  echo("hahaha");
+  
     while($row=mysqli_fetch_assoc($exutequery))
     {
       ?>
