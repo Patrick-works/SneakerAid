@@ -371,7 +371,7 @@ our online sneaker laundry service is equipped to handle them all</li>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
             <div class="icon-box">
               <div class="icon"><i class=""></i></div>
-              <h4><a href="">Request a cleaning video</a></h4>
+              <h4><a href="video.php">Request a cleaning video</a></h4>
               <p>"WE focus on transparency"</p>
             </div>
           </div>
