@@ -124,7 +124,7 @@ if(isset($_SESSION["email"]) && isset($_SESSION["firstname"]) && isset($_SESSION
           <h2>"Dont worry your sneakers will be alright OKAY?"</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started scrollto">Sign up</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Cleaning process</span></a>
+            <a href="https://youtu.be/SRCOazNKltM?si=IGEHdYPHQyu2_e5R" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Cleaning process</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
